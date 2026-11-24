@@ -1,4 +1,4 @@
-const httpStatus = require('http-status');
+const { status: httpStatus } = require('http-status');
 const { User } = require('../models');
 const ApiError = require('../utils/ApiError');
 
@@ -7,7 +7,7 @@ const getProfile = async (profileId) => {
           path:'skills',
           model: 'Tag'
         }).populate({
-          path: 'projects tags',
+          path: 'projects',
           model: 'Project',
           populate: {
             path: 'tags',
